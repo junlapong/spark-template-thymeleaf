@@ -1,0 +1,23 @@
+### GIT ignore ###
+log
+*.log
+*.bak
+dependency-reduced-pom.xml
+
+### Eclipse ###
+.classpath
+.project
+.settings
+
+### Maven ###
+target
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
