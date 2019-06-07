@@ -8,10 +8,15 @@ import spark.template.thymeleaf.ThymeleafTemplateEngine;
 
 import static spark.Spark.get;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Thymeleaf template engine example
  */
 public class WebApp implements spark.servlet.SparkApplication {
+
+    private static final Logger log = LoggerFactory.getLogger(WebApp.class);
 
     @Override
     public void init() {
@@ -26,6 +31,9 @@ public class WebApp implements spark.servlet.SparkApplication {
 
         // hello.html file is in resources/templates directory
         get("/", (request, response) -> {
+
+            log.info("User-Agent: {}", request.headers("User-Agent"));
+
             Map<String, Object> model = new HashMap<>();
             model.put("name", "Jun");
             return new ModelAndView(model, "home"); // located in resources/templates
